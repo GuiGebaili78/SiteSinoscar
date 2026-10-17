@@ -1,0 +1,13 @@
+Coloque as imagens aqui com estes nomes (ou altere o src no index.html):
+
+assets/img/logo.png            -> logo (cabeçalho, rodapé e favicon). PNG com fundo transparente fica melhor.
+assets/img/fachada.jpg         -> foto da entrada da oficina (hero). Vertical (4:5) fica melhor.
+
+assets/img/galeria/alternador-1.jpg
+assets/img/galeria/alternador-2.jpg
+assets/img/galeria/alternador-3.jpg
+assets/img/galeria/partida-1.jpg
+assets/img/galeria/partida-2.jpg
+assets/img/galeria/partida-3.jpg
+
+Enquanto a imagem não existir, o site mostra um espaço reservado tracejado.
