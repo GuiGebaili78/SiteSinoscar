@@ -1,13 +1,31 @@
-Coloque as imagens aqui com estes nomes (ou altere o src no index.html):
+Imagens usadas pelo site (para trocar, substitua o arquivo ou altere o src no index.html):
 
-assets/img/logo.png            -> logo (cabeçalho, rodapé e favicon). PNG com fundo transparente fica melhor.
-assets/img/fachada.jpg         -> foto da entrada da oficina (hero). Vertical (4:5) fica melhor.
+logo-sinos-car.svg            -> logo do cabeçalho, versão horizontal para fundo escuro.
+logo-sinos-car-vertical.svg   -> logo do rodapé, versão empilhada para fundo escuro.
+favicon.svg                   -> ícone da aba do navegador (o raio do logo).
+apple-touch-icon.png          -> ícone ao salvar o site na tela do celular.
+silhueta-carro.svg            -> silhueta do carro, na chamada final.
 
-assets/img/galeria/alternador-1.jpg
-assets/img/galeria/alternador-2.jpg
-assets/img/galeria/alternador-3.jpg
-assets/img/galeria/partida-1.jpg
-assets/img/galeria/partida-2.jpg
-assets/img/galeria/partida-3.jpg
+entrada.jpeg                  -> foto da entrada da oficina (hero e prévia de compartilhamento).
+imgOficinaFrente03.jpeg       -> frente da oficina (seção Localização).
+imagemsinomar.jpg             -> profissional trabalhando (seção Quem faz).
+                                 É uma selfie espelhada: o CSS desinverte a foto (.work-photo img).
+                                 Ao trocar por outra foto, remova esse transform e reposicione o .hotspot.
 
-Enquanto a imagem não existir, o site mostra um espaço reservado tracejado.
+Seção Peças (o src precisa ter as mesmas maiúsculas e minúsculas do nome do arquivo):
+alternador01-recorte.jpg      -> alternadores de vários modelos (alternador01.jpg sem o risco na borda de baixo).
+alternador02.jpg              -> alternador com a polia em destaque.
+alternador03-frente.jpg       -> alternador visto de frente (recorte de alternador03.jpg).
+alternador03-traseira.jpg     -> alternador visto por trás (recorte de alternador03.jpg).
+motorPartida02.webp           -> motor de partida.
+motorPartida03.jpg            -> motores de partida de vários modelos.
+motorPartida04-desmontado.jpg -> motor de partida desmontado (recorte de motorPartida04.jpg).
+motorPartida04-montado.jpg    -> motor de partida montado (recorte de motorPartida04.jpg).
+pecasEletricas01.webp         -> peças de alternador e de motor de partida.
+MotorPartida01.webp           -> peças de motor de partida.
+
+Arquivos de origem, não usados diretamente pelo site:
+alternador01.jpg              -> tem um risco escuro nas 2 últimas linhas; de onde saiu o recorte.
+alternador03.jpg              -> duas fotos lado a lado, com sobra branca; de onde saíram os recortes.
+motorPartida04.jpg            -> duas fotos lado a lado, com sobra branca; de onde saíram os recortes.
+logotipo.png                  -> logo em PNG, com fundo branco.

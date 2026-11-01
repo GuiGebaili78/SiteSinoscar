@@ -11,9 +11,10 @@
   <meta property="og:title" content="Sinoscar Autoelétrica" />
   <meta property="og:description" content="Especialista em alternadores, motores de partida e injeção eletrônica em São Caetano do Sul." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/img/fachada.jpg" />
+  <meta property="og:image" content="assets/img/entrada.jpeg" />
 
-  <link rel="icon" href="assets/img/logo.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -25,7 +26,7 @@
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Sinoscar Autoelétrica",
-    "image": "assets/img/fachada.jpg",
+    "image": "assets/img/entrada.jpeg",
     "telephone": "+55-11-97186-9936",
     "address": {
       "@type": "PostalAddress",
@@ -62,6 +63,9 @@
       <symbol id="bolt" viewBox="0 0 24 24">
         <path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/>
       </symbol>
+      <symbol id="chevron" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7"/>
+      </symbol>
     </defs>
   </svg>
 
@@ -69,15 +73,14 @@
   <header class="header" id="topo">
     <div class="container header__inner">
       <a href="#topo" class="brand" aria-label="Sinoscar Autoelétrica - início">
-        <!-- Coloque o logo em assets/img/logo.png -->
-        <img src="assets/img/logo.png" alt="Logo Sinoscar Autoelétrica" class="brand__logo" onerror="this.hidden=true" />
-        <span class="brand__name">Sinoscar <strong>Autoelétrica</strong></span>
+        <img src="assets/img/logo-sinos-car.svg" alt="Auto Elétrica Sinos Car" class="brand__logo" width="625" height="156" />
       </a>
 
       <nav class="nav" id="nav" aria-label="Menu principal">
         <a href="#servicos">Serviços</a>
+        <a href="#quem-faz">Quem faz</a>
+        <a href="#pecas">Peças</a>
         <a href="#oficinas">Para Oficinas</a>
-        <a href="#galeria">Galeria</a>
         <a href="#localizacao">Localização</a>
         <a href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn--wa btn--sm nav__cta">
           <svg class="ico"><use href="#wa" /></svg> (11) 9 7186-9936
@@ -121,12 +124,7 @@
 
         <div class="hero__media reveal" data-tilt>
           <div class="photo-frame">
-            <!-- Coloque a foto da entrada da oficina em assets/img/fachada.jpg -->
-            <img src="assets/img/fachada.jpg" alt="Entrada da oficina Sinoscar Autoelétrica" onerror="this.closest('.photo-frame').classList.add('is-empty')" />
-            <div class="photo-frame__placeholder">
-              <svg class="ico ico--xl"><use href="#bolt" /></svg>
-              <span>Foto da entrada da oficina<br /><small>assets/img/fachada.jpg</small></span>
-            </div>
+            <img src="assets/img/entrada.jpeg" alt="Entrada da oficina: portão amarelo com a placa Auto Elétrico e muro preto com um carro vermelho pintado" width="1195" height="896" fetchpriority="high" />
           </div>
           <svg class="hero__gear hero__gear--a" aria-hidden="true"><use href="#gear" /></svg>
           <svg class="hero__gear hero__gear--b" aria-hidden="true"><use href="#gear" /></svg>
@@ -213,6 +211,109 @@
       </div>
     </section>
 
+    <!-- ============ QUEM FAZ ============ -->
+    <section class="section section--dark" id="quem-faz">
+      <div class="container">
+        <div class="split split--center split--intro">
+          <div class="reveal">
+            <span class="eyebrow eyebrow--light">Quem faz o serviço</span>
+            <h2 class="section__title">Atendimento direto com quem <span class="hl">põe a mão no motor.</span></h2>
+          </div>
+          <div class="split__text reveal">
+            <p>
+              Aqui você fala com <strong>quem entende do assunto</strong>. Primeiro encontramos a causa do defeito,
+              depois explicamos o que precisa ser feito e passamos o orçamento. O serviço só começa com a sua aprovação.
+            </p>
+          </div>
+        </div>
+
+        <figure class="work-photo reveal">
+          <img src="assets/img/imagemsinomar.jpg" alt="Profissional da Sinoscar sorrindo, de óculos e camiseta preta com o logo da oficina, ao lado de um carro com o motor à mostra e o alternador à vista" width="1365" height="768" loading="lazy" />
+          <span class="hotspot" aria-hidden="true"><span>Alternador</span></span>
+        </figure>
+
+        <ul class="checks checks--row reveal">
+          <li>Teste em bancada ou no veículo</li>
+          <li>Orçamento antes do serviço</li>
+          <li>Entrega funcionando e conferida</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PEÇAS ============ -->
+    <section class="section section--alt" id="pecas">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="eyebrow">Peças</span>
+          <h2 class="section__title">Alternadores e <span class="hl">motores de partida</span></h2>
+          <p class="section__lead">Algumas das peças que passam pela nossa bancada. Toque em uma delas para perguntar direto no WhatsApp.</p>
+        </header>
+
+        <div class="gallery-filter reveal" role="group" aria-label="Filtrar peças">
+          <button class="chip is-active" data-filter="all" aria-pressed="true">Todas</button>
+          <button class="chip" data-filter="alternador" aria-pressed="false">Alternadores</button>
+          <button class="chip" data-filter="partida" aria-pressed="false">Motores de partida</button>
+        </div>
+
+        <div class="carousel reveal" role="group" aria-roledescription="carrossel" aria-label="Fotos de peças">
+          <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Foto anterior"><svg aria-hidden="true"><use href="#chevron" /></svg></button>
+          <div class="gallery">
+            <a class="gallery__item" data-cat="alternador" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20alternador." target="_blank" rel="noopener">
+              <span class="gallery__media gallery__media--contain"><img src="assets/img/alternador01-recorte.jpg" alt="Alternadores de tamanhos diferentes, lado a lado, sobre fundo branco" width="800" height="627" loading="lazy" /></span>
+              <span class="gallery__name">Alternadores de vários modelos</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="alternador" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20reparo%20de%20alternador." target="_blank" rel="noopener">
+              <span class="gallery__media"><img src="assets/img/alternador02.jpg" alt="Alternador em destaque, com a polia em primeiro plano e outro alternador desfocado ao fundo" width="980" height="490" loading="lazy" style="object-position: 61% 50%" /></span>
+              <span class="gallery__name">Reparo de alternador</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="alternador" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20alternador." target="_blank" rel="noopener">
+              <span class="gallery__media"><img src="assets/img/alternador03-frente.jpg" alt="Alternador visto de frente, com a polia preta ao centro" width="344" height="344" loading="lazy" /></span>
+              <span class="gallery__name">Alternador, vista frontal</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="alternador" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20alternador." target="_blank" rel="noopener">
+              <span class="gallery__media"><img src="assets/img/alternador03-traseira.jpg" alt="Alternador visto por trás, com a tampa preta e o enrolamento de cobre à mostra" width="352" height="352" loading="lazy" /></span>
+              <span class="gallery__name">Alternador, vista traseira</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="partida" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20motor%20de%20partida." target="_blank" rel="noopener">
+              <span class="gallery__media gallery__media--contain"><img src="assets/img/motorPartida02.webp" alt="Motor de partida completo, de corpo preto e solenoide prateado, sobre fundo branco" width="1024" height="1024" loading="lazy" /></span>
+              <span class="gallery__name">Motor de partida</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="partida" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20motor%20de%20partida." target="_blank" rel="noopener">
+              <span class="gallery__media gallery__media--contain"><img src="assets/img/motorPartida03.jpg" alt="Motores de partida de tamanhos diferentes, agrupados sobre fundo branco" width="800" height="630" loading="lazy" /></span>
+              <span class="gallery__name">Motores de partida de vários modelos</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="partida" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20reparo%20de%20motor%20de%20partida." target="_blank" rel="noopener">
+              <span class="gallery__media"><img src="assets/img/motorPartida04-desmontado.jpg" alt="Motor de partida desmontado em uma bandeja de metal: induzido, solenoide, carcaça e tampa" width="352" height="352" loading="lazy" /></span>
+              <span class="gallery__name">Motor de partida desmontado</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="partida" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20motor%20de%20partida." target="_blank" rel="noopener">
+              <span class="gallery__media"><img src="assets/img/motorPartida04-montado.jpg" alt="Motor de partida montado, apoiado em um piso de concreto" width="350" height="350" loading="lazy" /></span>
+              <span class="gallery__name">Motor de partida montado</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="alternador partida" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20pe%C3%A7as%20de%20alternador%20e%20motor%20de%20partida." target="_blank" rel="noopener">
+              <span class="gallery__media gallery__media--contain"><img src="assets/img/pecasEletricas01.webp" alt="Peças avulsas: placa de diodos, regulador de voltagem, polia, rolamento, rotor, induzido, bendix e escovas" width="3508" height="2481" loading="lazy" /></span>
+              <span class="gallery__name">Peças de alternador e motor de partida</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+            <a class="gallery__item" data-cat="partida" href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%3A%20pe%C3%A7as%20de%20motor%20de%20partida." target="_blank" rel="noopener">
+              <span class="gallery__media gallery__media--contain"><img src="assets/img/MotorPartida01.webp" alt="Peças de motor de partida: garfo, solenoide, tampas, bendix, induzido e porta-escovas" width="508" height="607" loading="lazy" /></span>
+              <span class="gallery__name">Peças de motor de partida</span>
+              <span class="gallery__cta"><svg class="ico"><use href="#wa" /></svg> Consultar</span>
+            </a>
+          </div>
+          <button class="carousel__btn carousel__btn--next" type="button" aria-label="Próxima foto"><svg aria-hidden="true"><use href="#chevron" /></svg></button>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PARA OFICINAS ============ -->
     <section class="section section--dark" id="oficinas">
       <svg class="section__gear" aria-hidden="true"><use href="#gear" /></svg>
@@ -256,74 +357,31 @@
       </div>
     </section>
 
-    <!-- ============ GALERIA ============ -->
-    <section class="section" id="galeria">
-      <div class="container">
-        <header class="section__head reveal">
-          <span class="eyebrow">Galeria</span>
-          <h2 class="section__title">Alternadores e <span class="hl">motores de partida</span></h2>
-          <p class="section__lead">Alguns dos serviços que passam pela nossa bancada.</p>
-        </header>
-
-        <div class="gallery-filter reveal" role="tablist">
-          <button class="chip is-active" data-filter="all">Todos</button>
-          <button class="chip" data-filter="alternador">Alternadores</button>
-          <button class="chip" data-filter="partida">Motores de partida</button>
-        </div>
-
-        <!-- Coloque as fotos em assets/img/galeria/ com os nomes abaixo (ou altere o src) -->
-        <div class="gallery">
-          <figure class="gallery__item reveal" data-cat="alternador">
-            <img src="assets/img/galeria/alternador-1.jpg" alt="Alternador" loading="lazy" onerror="this.parentElement.classList.add('is-empty')" />
-            <div class="gallery__ph">Alternador<br /><small>alternador-1.jpg</small></div>
-            <figcaption>Alternador</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--tall reveal" data-cat="partida">
-            <img src="assets/img/galeria/partida-1.jpg" alt="Motor de partida" loading="lazy" onerror="this.parentElement.classList.add('is-empty')" />
-            <div class="gallery__ph">Motor de partida<br /><small>partida-1.jpg</small></div>
-            <figcaption>Motor de partida</figcaption>
-          </figure>
-          <figure class="gallery__item reveal" data-cat="alternador">
-            <img src="assets/img/galeria/alternador-2.jpg" alt="Alternador" loading="lazy" onerror="this.parentElement.classList.add('is-empty')" />
-            <div class="gallery__ph">Alternador<br /><small>alternador-2.jpg</small></div>
-            <figcaption>Alternador</figcaption>
-          </figure>
-          <figure class="gallery__item reveal" data-cat="partida">
-            <img src="assets/img/galeria/partida-2.jpg" alt="Motor de partida" loading="lazy" onerror="this.parentElement.classList.add('is-empty')" />
-            <div class="gallery__ph">Motor de partida<br /><small>partida-2.jpg</small></div>
-            <figcaption>Motor de partida</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--tall reveal" data-cat="alternador">
-            <img src="assets/img/galeria/alternador-3.jpg" alt="Alternador" loading="lazy" onerror="this.parentElement.classList.add('is-empty')" />
-            <div class="gallery__ph">Alternador<br /><small>alternador-3.jpg</small></div>
-            <figcaption>Alternador</figcaption>
-          </figure>
-          <figure class="gallery__item reveal" data-cat="partida">
-            <img src="assets/img/galeria/partida-3.jpg" alt="Motor de partida" loading="lazy" onerror="this.parentElement.classList.add('is-empty')" />
-            <div class="gallery__ph">Motor de partida<br /><small>partida-3.jpg</small></div>
-            <figcaption>Motor de partida</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ LOCALIZAÇÃO ============ -->
-    <section class="section section--alt" id="localizacao">
-      <div class="container split split--center">
-        <div class="reveal">
-          <span class="eyebrow">Onde estamos</span>
-          <h2 class="section__title">Venha até a <span class="hl">Sinoscar</span></h2>
-          <address class="info">
-            <p><strong>Rua Teodoro Sampaio, 535</strong><br />Bairro Cerâmica · São Caetano do Sul – SP<br />CEP 09530-720</p>
-            <p><a href="tel:+5511971869936" class="link">(11) 9 7186-9936</a></p>
-          </address>
-          <div class="hero__actions">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Teodoro+Sampaio,+535,+Ceramica,+Sao+Caetano+do+Sul,+SP,+09530-720" target="_blank" rel="noopener" class="btn btn--red">Traçar rota</a>
-            <a href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn--wa">
-              <svg class="ico"><use href="#wa" /></svg> WhatsApp
-            </a>
+    <section class="section" id="localizacao">
+      <div class="container">
+        <div class="split split--center">
+          <div class="reveal">
+            <span class="eyebrow">Onde estamos</span>
+            <h2 class="section__title">Venha até a <span class="hl">Sinoscar</span></h2>
+            <address class="info">
+              <p><strong>Rua Teodoro Sampaio, 535</strong><br />Bairro Cerâmica · São Caetano do Sul – SP<br />CEP 09530-720</p>
+              <p><a href="tel:+5511971869936" class="link">(11) 9 7186-9936</a></p>
+            </address>
+            <div class="hero__actions">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Teodoro+Sampaio,+535,+Ceramica,+Sao+Caetano+do+Sul,+SP,+09530-720" target="_blank" rel="noopener" class="btn btn--red">Traçar rota</a>
+              <a href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn--wa">
+                <svg class="ico"><use href="#wa" /></svg> WhatsApp
+              </a>
+            </div>
           </div>
+
+          <figure class="storefront reveal">
+            <img src="assets/img/imgOficinaFrente03.jpeg" alt="Frente da oficina vista da rua, com o portão amarelo e o muro com o carro vermelho pintado" width="1195" height="896" loading="lazy" />
+            <figcaption><svg class="ico"><use href="#bolt" /></svg> Procure o portão amarelo com o carro vermelho pintado no muro.</figcaption>
+          </figure>
         </div>
+
         <div class="map reveal">
           <iframe
             title="Mapa - Sinoscar Autoelétrica"
@@ -336,6 +394,7 @@
     <!-- ============ CTA FINAL ============ -->
     <section class="cta">
       <div class="container cta__inner reveal">
+        <img src="assets/img/silhueta-carro.svg" alt="" class="cta__car" width="530" height="131" loading="lazy" />
         <h2>Carro não ligou? Luz acesa no painel?</h2>
         <p>Fale agora com a Sinoscar e receba um atendimento rápido.</p>
         <a href="https://wa.me/5511971869936?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn--white btn--lg">
@@ -349,9 +408,8 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <a href="#topo" class="brand brand--footer">
-          <img src="assets/img/logo.png" alt="Logo Sinoscar Autoelétrica" class="brand__logo" onerror="this.hidden=true" />
-          <span class="brand__name">Sinoscar <strong>Autoelétrica</strong></span>
+        <a href="#topo" class="brand brand--footer" aria-label="Sinoscar Autoelétrica - início">
+          <img src="assets/img/logo-sinos-car-vertical.svg" alt="Auto Elétrica Sinos Car" class="brand__logo" width="507" height="327" loading="lazy" />
         </a>
         <p class="footer__about">Alternadores, motores de partida e injeção eletrônica. Serviços de parte elétrica para clientes e oficinas mecânicas.</p>
       </div>
@@ -374,8 +432,9 @@
       <div>
         <h4>Navegação</h4>
         <a href="#servicos" class="footer__link">Serviços</a>
+        <a href="#quem-faz" class="footer__link">Quem faz</a>
+        <a href="#pecas" class="footer__link">Peças</a>
         <a href="#oficinas" class="footer__link">Para Oficinas</a>
-        <a href="#galeria" class="footer__link">Galeria</a>
         <a href="#localizacao" class="footer__link">Localização</a>
       </div>
     </div>

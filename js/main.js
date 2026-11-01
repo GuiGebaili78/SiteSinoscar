@@ -1,6 +1,5 @@
 /* Sinoscar Autoelétrica — interações e animações */
 (() => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.header');
   const progress = document.querySelector('.scroll-progress');
   const bgGear = document.querySelector('.bg-gear');
@@ -15,10 +14,8 @@
     const max = document.documentElement.scrollHeight - window.innerHeight;
     header.classList.toggle('is-scrolled', y > 30);
     progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-    if (!reduceMotion) {
-      bgGear.style.transform = `rotate(${y * 0.15}deg)`;
-      if (sectionGear) sectionGear.style.transform = `rotate(${-y * 0.1}deg)`;
-    }
+    bgGear.style.transform = `rotate(${y * 0.15}deg)`;
+    if (sectionGear) sectionGear.style.transform = `rotate(${-y * 0.1}deg)`;
     ticking = false;
   };
   window.addEventListener('scroll', () => {
@@ -37,12 +34,21 @@
   nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
   /* Revelar elementos ao rolar (com atraso escalonado por grupo) */
-  document.querySelectorAll('.cards, .steps, .gallery, .hero__content').forEach((group) => {
+  document.querySelectorAll('.cards, .steps, .hero__content').forEach((group) => {
     group.querySelectorAll(':scope > .reveal').forEach((el, i) => el.style.setProperty('--d', `${i * 0.12}s`));
   });
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      /* Terminada a entrada, tira .reveal para o hover voltar a usar a transição do próprio elemento */
+      el.addEventListener('transitionend', function done(ev) {
+        if (ev.target !== el) return;
+        el.classList.remove('reveal');
+        el.removeEventListener('transitionend', done);
+      });
+      el.classList.add('is-visible');
+      io.unobserve(el);
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
@@ -78,7 +84,7 @@
 
   /* Efeito 3D na foto do hero */
   const tilt = document.querySelector('[data-tilt]');
-  if (tilt && !reduceMotion && window.matchMedia('(hover: hover)').matches) {
+  if (tilt && window.matchMedia('(hover: hover)').matches) {
     tilt.addEventListener('mousemove', (e) => {
       const r = tilt.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
@@ -97,12 +103,85 @@
     });
   });
 
-  /* Filtro da galeria */
+  /* Carrossel das peças: esteira que anda devagar o tempo todo e espera enquanto alguém interage com ela */
+  const carousel = document.querySelector('.carousel');
+  const gallery = carousel.querySelector('.gallery');
+
+  /* Cópias no fim emendam o último item no primeiro; leitores de tela e o Tab só veem os originais */
+  [...gallery.children].forEach((item) => {
+    const copy = item.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.tabIndex = -1;
+    gallery.append(copy);
+  });
+
+  const shown = () => [...gallery.children].filter((el) => !el.classList.contains('is-hidden'));
+  const jump = (left) => gallery.scrollTo({ left, behavior: 'instant' });
+  const loopWidth = () => {
+    const all = shown();
+    return all[all.length / 2].offsetLeft - all[0].offsetLeft;
+  };
+  /* Ao chegar nas cópias, volta para os originais idênticos sem que se perceba */
+  const wrap = () => {
+    const loop = loopWidth();
+    if (gallery.scrollLeft >= loop) jump(gallery.scrollLeft - loop);
+  };
+  const move = (dir) => {
+    if (dir > 0) wrap();
+    else if (gallery.scrollLeft < 1) jump(loopWidth());
+    const [a, b] = shown();
+    gallery.scrollBy({ left: dir * (b.offsetLeft - a.offsetLeft), behavior: 'smooth' });
+  };
+
+  let holdUntil = 0;
+  const hold = () => { holdUntil = Date.now() + 5000; };
+  carousel.querySelector('.carousel__btn--prev').addEventListener('click', () => { hold(); move(-1); });
+  carousel.querySelector('.carousel__btn--next').addEventListener('click', () => { hold(); move(1); });
+  gallery.addEventListener('touchstart', hold, { passive: true });
+  gallery.addEventListener('touchend', hold, { passive: true });
+
+  let settle;
+  gallery.addEventListener('scroll', () => {
+    clearTimeout(settle);
+    settle = setTimeout(wrap, 150);
+  }, { passive: true });
+
+  let inView = false;
+  new IntersectionObserver(([e]) => {
+    inView = e.isIntersecting;
+    /* Com lazy, as fotos ainda fora do carrossel só carregariam ao entrar nele, piscando em branco */
+    if (inView) gallery.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
+  }, { rootMargin: '300px 0px' }).observe(carousel);
+
+  /* 30px por segundo. A posição guarda a fração porque o navegador arredonda scrollLeft para pixel inteiro */
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  let pos = 0;
+  let last = performance.now();
+  const drift = (now) => {
+    const elapsed = Math.min(now - last, 100);
+    last = now;
+    const busy = Date.now() < holdUntil || (canHover && carousel.matches(':hover')) || carousel.querySelector(':focus-visible');
+    if (inView && !busy) {
+      wrap();
+      /* Se o dedo, as setas ou o filtro mudaram a posição, continua de onde parou */
+      if (Math.abs(gallery.scrollLeft - pos) > 1) pos = gallery.scrollLeft;
+      pos += elapsed * 0.03;
+      gallery.scrollLeft = pos;
+    }
+    requestAnimationFrame(drift);
+  };
+  requestAnimationFrame(drift);
+
+  /* Filtro das peças (uma peça pode ter mais de uma categoria) */
   const chips = document.querySelectorAll('.chip');
   const items = document.querySelectorAll('.gallery__item');
   chips.forEach((chip) => chip.addEventListener('click', () => {
-    chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+    chips.forEach((c) => {
+      c.classList.toggle('is-active', c === chip);
+      c.setAttribute('aria-pressed', String(c === chip));
+    });
     const f = chip.dataset.filter;
-    items.forEach((it) => it.classList.toggle('is-hidden', f !== 'all' && it.dataset.cat !== f));
+    items.forEach((it) => it.classList.toggle('is-hidden', f !== 'all' && !it.dataset.cat.split(' ').includes(f)));
+    jump(0);
   }));
 })();
